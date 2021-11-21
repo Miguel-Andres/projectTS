@@ -6,11 +6,12 @@ import { LazyExoticComponent ,lazy} from "react";
 
 
 
+
 type JSXComponent =()=>JSX.Element
 
-const LazyPage1 = lazy(()=> import(/*webpackChunkName:"lazyPage1"*/"../01-lazyload/pages/LazyPage1"))
-const LazyPage2 = lazy(()=> import(/*webpackChunkName:"lazyPage2"*/"../01-lazyload/pages/LazyPage2"))
-const LazyPage3 = lazy(()=> import(/*webpackChunkName:"lazyPage3"*/"../01-lazyload/pages/LazyPage3"))
+const ShoppingPage = lazy(()=> import(/*webpackChunkName:"lazyPage1"*/"../02-component-pattern/pages/ShoppingPage"))
+const LazyPage2 = lazy(()=> import(/*webpackChunkName:"lazyPage2"*/"../02-component-pattern/pages/LazyPage2"))
+const LazyPage3 = lazy(()=> import(/*webpackChunkName:"lazyPage3"*/"../02-component-pattern/pages/LazyPage3"))
 
 
 interface Route{
@@ -21,9 +22,9 @@ interface Route{
 }
 
 export const routes:Route[] =[{
-    path: "/lazy1" ,
-    Component :  LazyPage1 ,
-    name :"lazy1" 
+    path: "/" ,
+    Component :  ShoppingPage ,
+    name :"shopping Page" 
 },{
     path: "/lazy2" ,
     Component :  LazyPage2 ,
