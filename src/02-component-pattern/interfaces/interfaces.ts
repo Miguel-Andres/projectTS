@@ -8,6 +8,8 @@ export interface ProductCardProps {
     children?: ReactElement | ReactElement[]
     className ?:string
     style ?: React.CSSProperties
+    onChange?: (args :onChangeArgs)=>void
+    value?:number
 
 
 }
@@ -32,4 +34,20 @@ export interface ProductContextProps{
       Image:   (Props: ProductImageProps) =>JSX.Element
       Buttons : (Props :ProductButtomProps)=> JSX.Element 
       
+  }
+
+
+  // se crean los args para definir los datos del objeto del shoopingcart
+
+  export interface onChangeArgs{
+    product :Product 
+    count : number 
+    
+  }
+
+
+  export interface ProductInCart extends Product {
+    count :number
+  
+  
   }

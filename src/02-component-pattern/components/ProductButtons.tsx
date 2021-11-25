@@ -5,8 +5,9 @@ import { ProductContext } from "./ProductCard";
 export interface Props {
   className?: string;
   style? : React.CSSProperties
+  count? : number
 }
-export function ProductButtons({ className ,style}:Props) {
+export function ProductButtons({ className ,style ,count }:Props) {
 
   const { increaseBy, counter } = useContext(ProductContext);
 
@@ -20,7 +21,7 @@ export function ProductButtons({ className ,style}:Props) {
         -
       </button>
 
-      <div className={styles.countLabel}>{counter}</div>
+      <div className={styles.countLabel}  >{counter }</div>
 
       <button className={styles.buttonAdd} onClick={() => increaseBy(1)}>
         +
