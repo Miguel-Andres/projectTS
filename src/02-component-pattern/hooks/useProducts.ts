@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Product, onChangeArgs } from '../interfaces/interfaces';
 
 interface Props {
@@ -9,20 +9,12 @@ interface Props {
 
 const useProducts = ({onChange ,product ,value = 0}:Props) => {
 
-  const [counter, setCounter] = useState(value);
-                               //true                         
-  const isControlled =useRef(!!onChange)
-
-  
+  const [counter, setCounter] = useState(value);      
   
   const increaseBy = (value: number) => {
-      console.log(isControlled.current)
+    
 
-      let newCount =Math.max( counter  + value, 0)
-
-      if(isControlled.current){
-          return onChange!({count:value, product})
-      }
+      let newCount =Math.max( counter  + value, 0)      
       
       setCounter(newCount);
       
