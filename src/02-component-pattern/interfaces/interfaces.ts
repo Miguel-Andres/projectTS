@@ -1,15 +1,17 @@
-import { ReactElement } from "react";
+
 import {Props as ProductTitleProps} from "../components/ProductTitle"
 import {Props as ProductImageProps} from "../components/ProductImage"
 import {Props as ProductButtomProps} from "../components/ProductButtons"
 
 export interface ProductCardProps {
     product :Product
-    children?: ReactElement | ReactElement[]
+    //children?: ReactElement | ReactElement[]
+    children : (args: ProductCardHandlers)=>JSX.Element
     className ?:string
     style ?: React.CSSProperties
     onChange?: (args :onChangeArgs)=>void
     value?:number
+    initialValues?: InitialValues
 
 
 }
@@ -24,6 +26,7 @@ export interface ProductContextProps{
     counter : number 
     product: Product ;
     increaseBy : (value:number)=>void;
+    maxCount ?: number
   }
 
 
@@ -44,10 +47,24 @@ export interface ProductContextProps{
     count : number 
     
   }
-
-
   export interface ProductInCart extends Product {
     count :number
   
   
+  }
+
+  export interface InitialValues{
+    count ?:number
+    maxCount? :number
+  }
+
+
+  export interface ProductCardHandlers {
+    count : number    
+    maxCount? : number ,
+    isMaxCountReached : boolean
+    product :Product
+    
+    reset : ()=>void
+    increaseBy : (value:number) =>void
   }
